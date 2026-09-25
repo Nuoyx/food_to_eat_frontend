@@ -1,7 +1,7 @@
-import "./FoodList.css";
 import FoodCard from "../../../components/food-card/FoodCard";
 
-const popularFoods = [
+
+const foodList = [
   {
     id: 1,
     name: "Pizza",
@@ -28,32 +28,26 @@ const popularFoods = [
   },
 ];
 
-function FoodList() {
-  const handleBrowseAll = () => {
-    console.log("Browse all foods");
-  };
-
+function FoodResults() {
   return (
-    <section className="popular-foods">
+    <section className="food-results">
       <div className="popular-foods__header">
-        <div>
-          <h2>Popular Foods</h2>
-
-          <p>
-            Discover some popular choices for your next meal.
+          <p className="food-results__count">
+            {foodList.length} foods found
           </p>
-        </div>
-
-        <button
-          className="popular-foods__browse-button"
-          onClick={handleBrowseAll}
-        >
-          Browse All Foods →
-        </button>
+          <label className="food-results__sort">
+            Sort:
+            <select defaultValue="popular">
+              <option value="popular">Popular</option> 
+              <option value="name-asc">A → Z</option> 
+              <option value="name-desc">Z → A</option> 
+              <option value="recent">Recently Added</option>
+            </select>
+          </label>
       </div>
 
       <div className="popular-foods__grid">
-        {popularFoods.map((food) => (
+        {foodList.map((food) => (
           <FoodCard key={food.id} food={food} />
         ))}
       </div>
@@ -61,4 +55,6 @@ function FoodList() {
   );
 }
 
-export default FoodList;
+export default FoodResults;
+
+

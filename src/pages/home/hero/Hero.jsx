@@ -1,4 +1,5 @@
-import SearchBar from "./search-bar/SearchBar";
+import SearchBar from "../../../components/search-bar/SearchBar";
+import "./Hero.css";
 
 function Hero() {
   const handleSurpriseMe = () => {
