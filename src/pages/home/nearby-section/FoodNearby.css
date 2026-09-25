@@ -1,0 +1,10 @@
+.food-nearby {
+  padding-top: 28px;
+}
+
+.food-nearby__title {
+  margin: 0 0 14px;
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  letter-spacing: -0.05em;
+  color: #1d2c27;
+}

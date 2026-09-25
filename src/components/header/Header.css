@@ -1,0 +1,107 @@
+ .header {
+	--header-ink: #18211b;
+	--header-muted: #687269;
+	--header-surface: rgba(255, 253, 248, 0.88);
+	--header-line: rgba(24, 33, 27, 0.1);
+	--header-accent: #e85d35;
+	--header-accent-soft: #fff0e8;
+
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	width: 100%;
+	border-bottom: 1px solid var(--header-line);
+	background: var(--header-surface);
+	box-sizing: border-box;
+	backdrop-filter: blur(18px);
+	-webkit-backdrop-filter: blur(18px);
+}
+
+.header__container {
+	width: min(100% - 48px, 1180px);
+	min-height: 78px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 32px;
+}
+
+.header__logo {
+	position: relative;
+	flex: 0 0 auto;
+	color: var(--header-ink);
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -0.7px;
+	text-decoration: none;
+}
+
+.header__nav {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 6px;
+}
+
+.header__link {
+	position: relative;
+	padding: 10px 14px;
+	border-radius: 999px;
+	color: var(--header-muted);
+	font-family: var(--sans, system-ui, sans-serif);
+	font-size: 14px;
+	font-weight: 650;
+	line-height: 1;
+	text-decoration: none;
+	transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.header__link:hover {
+	color: var(--header-ink);
+	background: var(--header-accent-soft);
+	transform: translateY(-1px);
+}
+
+.header__link:focus-visible,
+.header__logo:focus-visible {
+	outline: 3px solid rgba(232, 93, 53, 0.35);
+	outline-offset: 4px;
+}
+
+@media (max-width: 720px) {
+	.header__container {
+		width: min(100% - 32px, 560px);
+		min-height: 68px;
+		align-items: flex-start;
+		flex-direction: column;
+		justify-content: center;
+		gap: 12px;
+	}
+
+	.header__nav {
+		width: calc(100% + 16px);
+		justify-content: flex-start;
+		overflow-x: auto;
+		padding: 0 8px 3px 0;
+		scrollbar-width: none;
+	}
+
+	.header__nav::-webkit-scrollbar {
+		display: none;
+	}
+
+	.header__link {
+		flex: 0 0 auto;
+		padding: 8px 12px;
+		font-size: 13px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.header__link {
+		transition: none;
+	}
+}
