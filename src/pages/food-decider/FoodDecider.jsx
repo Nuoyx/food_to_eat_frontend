@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./FoodDecider.css";
-
+import Header from "../../components/header/Header";
 import Question from "./food-decider-components/Question";
 import Recommendation from "./food-decider-components/Recommendation";
 
@@ -37,35 +37,43 @@ function FoodDecider() {
 
   if (recommendation) {
     return (
-      <main className="food-decider">
-        <Recommendation
-          food={recommendation}
-          onRestart={handleRestart}
-        />
-      </main>
+      <>
+        <Header />
+        <main className="food-decider">
+
+          <Recommendation
+            food={recommendation}
+            onRestart={handleRestart}
+          />
+        </main>
+      </>
+
     );
   }
   return (
+    <>
+      <Header />
+      <main className="food-decider">
+        <header className="food-decider__header">
+          <p className="food-decider__eyebrow">
+            Help Me Decide
+          </p>
 
-    <main className="food-decider">
-      <header className="food-decider__header">
-        <p className="food-decider__eyebrow">
-          Help Me Decide
-        </p>
+          <h1>Let's find something to eat.</h1>
 
-        <h1>Let's find something to eat.</h1>
+          <p>
+            Answer a few questions and we'll find a food
+            that matches your preferences.
+          </p>
+        </header>
 
-        <p>
-          Answer a few questions and we'll find a food
-          that matches your preferences.
-        </p>
-      </header>
+        <Question
+          question={question}
+          onAnswer={handleAnswer}
+        />
+      </main>
+    </>
 
-      <Question
-        question={question}
-        onAnswer={handleAnswer}
-      />
-    </main>
   );
 };
 

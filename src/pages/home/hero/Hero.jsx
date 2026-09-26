@@ -1,17 +1,19 @@
 import SearchBar from "../../../components/search-bar/SearchBar";
+import { useNavigate } from "react-router-dom";
 import "./Hero.css";
 
 function Hero() {
+  const navigate = useNavigate();
   const handleSurpriseMe = () => {
     console.log("Surprise me");
   };
 
   const handleBrowseFoods = () => {
-    console.log("Browse foods");
+    navigate("/foods");
   };
 
   const handleHelpMeDecide = () => {
-    console.log("Help me decide");
+    navigate("/decide");
   };
 
   return (
@@ -42,7 +44,7 @@ function Hero() {
         </div>
 
         <div className="hero__decision">
-          <p>Not sure what you want?</p>
+          <p>Still not sure what you want?</p>
 
           <button
             className="hero__decision-button"

@@ -1,14 +1,14 @@
 import "./FoodExplore.css";
+import Header from "../../components/header/Header";
 import SearchBar from "../../components/search-bar/SearchBar";
-import FoodFilters from "./food-explore-components/FoodFilter"
+import FoodFilters from "./food-explore-components/FoodFilter";
 import FoodResults from "./food-explore-components/FoodResults";
 
 function FoodExplore() {
   return (
     <main className="food-explore">
-      <header className="food-explore__header">
-        <h1>Explore All Foods</h1>
-      </header>
+      <Header />
+      <h1>Explore All Foods</h1>
 
       <SearchBar />
 
