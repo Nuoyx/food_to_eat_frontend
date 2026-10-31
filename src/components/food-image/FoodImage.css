@@ -1,0 +1,9 @@
+.food-image__fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #687269;
+  font-size: 0.9rem;
+  font-weight: 650;
+  text-align: center;
+}

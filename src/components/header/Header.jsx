@@ -4,9 +4,7 @@ import "./Header.css";
 
 const navigationItems = [
   { label: "Discover", path: "/foods" },
-  { label: "My Foods", path: "/my-foods" },
   { label: "History", path: "/history" },
-  { label: "Profile", path: "/profile" },
 ]
 
 function Header() {

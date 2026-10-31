@@ -27,8 +27,6 @@ function Chatbot() {
       ...previous,
       userMessage,
     ]);
-
-    // Backend call will go here
   };
 
   return (

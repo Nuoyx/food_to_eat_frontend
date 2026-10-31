@@ -1,21 +1,17 @@
-function FoodCard({ food }) {
-  const handleClick = () => {
-    console.log("Selected food:", food.name);
-  };
+import { Link } from "react-router-dom";
+import FoodImage from "../food-image/FoodImage";
 
+function FoodCard({ food }) {
   return (
-    <article
-      className="food-card"
-      onClick={handleClick}
-      role="button"
-      tabIndex={0}
-    >
+    <article className="food-card">
       <div className="food-card__image-container">
-        <img
-          className="food-card__image"
-          src={food.image}
-          alt={food.name}
-        />
+        <Link to={`/foods/${food.id}`} aria-label={`View ${food.name} details`}>
+          <FoodImage
+            className="food-card__image"
+            src={food.image}
+            alt={food.name}
+          />
+        </Link>
 
         <button
           className="food-card__favorite"
@@ -30,9 +26,10 @@ function FoodCard({ food }) {
       </div>
 
       <div className="food-card__content">
-        <h3>{food.name}</h3>
-
-        <p>{food.category}</p>
+        <Link className="food-card__details-link" to={`/foods/${food.id}`}>
+          <h3>{food.name}</h3>
+          <p>{food.category}</p>
+        </Link>
       </div>
     </article>
   );

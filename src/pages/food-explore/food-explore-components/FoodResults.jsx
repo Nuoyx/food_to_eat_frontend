@@ -1,39 +1,12 @@
 import FoodCard from "../../../components/food-card/FoodCard";
-
-
-const foodList = [
-  {
-    id: 1,
-    name: "Pizza",
-    category: "Italian",
-    image: "/images/foods/pizza.jpg",
-  },
-  {
-    id: 2,
-    name: "Ramen",
-    category: "Japanese",
-    image: "/images/foods/ramen.jpg",
-  },
-  {
-    id: 3,
-    name: "Tacos",
-    category: "Mexican",
-    image: "/images/foods/tacos.jpg",
-  },
-  {
-    id: 4,
-    name: "Sushi",
-    category: "Japanese",
-    image: "/images/foods/sushi.jpg",
-  },
-];
+import foods from "../../../data/foods";
 
 function FoodResults() {
   return (
     <section className="food-results">
       <div className="popular-foods__header">
           <p className="food-results__count">
-            {foodList.length} foods found
+            {foods.length} foods found
           </p>
           <label className="food-results__sort">
             Sort:
@@ -47,7 +20,7 @@ function FoodResults() {
       </div>
 
       <div className="popular-foods__grid">
-        {foodList.map((food) => (
+        {foods.map((food) => (
           <FoodCard key={food.id} food={food} />
         ))}
       </div>
@@ -56,5 +29,4 @@ function FoodResults() {
 }
 
 export default FoodResults;
-
 

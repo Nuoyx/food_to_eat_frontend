@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./FoodDecider.css";
-import Header from "../../components/header/Header";
 import Question from "./food-decider-components/Question";
 import Recommendation from "./food-decider-components/Recommendation";
 
@@ -38,7 +37,6 @@ function FoodDecider() {
   if (recommendation) {
     return (
       <>
-        <Header />
         <main className="food-decider">
 
           <Recommendation
@@ -52,7 +50,6 @@ function FoodDecider() {
   }
   return (
     <>
-      <Header />
       <main className="food-decider">
         <header className="food-decider__header">
           <p className="food-decider__eyebrow">
