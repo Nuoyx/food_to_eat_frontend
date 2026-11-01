@@ -1,17 +1,32 @@
 import "./FoodExplore.css";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import foods from "../../data/foods";
+import { getFoods } from "../../services/foodService";
 import SearchBar from "../../components/search-bar/SearchBar";
 import FoodFilters from "./food-explore-components/FoodFilter";
 import FoodResults from "./food-explore-components/FoodResults";
 
 function FoodExplore() {
   const [searchParams] = useSearchParams();
-  const query = (searchParams.get("q") ?? "").trim().toLowerCase();
+  const queryString = searchParams.toString();
+  const [foods, setFoods] = useState([]);
 
-  const matchingFoods = foods.filter((food) =>
-    food.name.toLowerCase().includes(query)
-  );
+  useEffect(() => {
+    let active = true;
+
+    const loadFoods = async () => {
+      const result = await getFoods(queryString);
+      if (active) {
+        setFoods(result);
+      }
+    };
+
+    loadFoods();
+
+    return () => {
+      active = false;
+    };
+  }, [queryString]);
 
   return (
     <main className="food-explore">
@@ -21,7 +36,7 @@ function FoodExplore() {
 
       <section className="food-explore__browser">
         <FoodFilters />
-        <FoodResults foods={matchingFoods} />
+        <FoodResults foods={foods} />
       </section>
     </main>
   );

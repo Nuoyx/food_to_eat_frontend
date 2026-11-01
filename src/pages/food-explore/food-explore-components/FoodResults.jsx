@@ -21,7 +21,7 @@ function FoodResults({ foods }) {
       {foods.length === 0 && (
         <div className="food-results__empty">
           <h2>No foods found</h2>
-          <p>Try another food name.</p>
+          <p>Please try another food name or adjust your filters.</p>
         </div>
       )}
 
