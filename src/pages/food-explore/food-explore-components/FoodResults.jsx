@@ -1,12 +1,11 @@
 import FoodCard from "../../../components/food-card/FoodCard";
-import foods from "../../../data/foods";
 
-function FoodResults() {
+function FoodResults({ foods }) {
   return (
     <section className="food-results">
       <div className="popular-foods__header">
-          <p className="food-results__count">
-            {foods.length} foods found
+          <p className="food-results__count" role="status">
+            {foods.length} {foods.length === 1 ? "food" : "foods"} found
           </p>
           <label className="food-results__sort">
             Sort:
@@ -18,6 +17,13 @@ function FoodResults() {
             </select>
           </label>
       </div>
+
+      {foods.length === 0 && (
+        <div className="food-results__empty">
+          <h2>No foods found</h2>
+          <p>Try another food name.</p>
+        </div>
+      )}
 
       <div className="popular-foods__grid">
         {foods.map((food) => (
