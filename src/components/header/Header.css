@@ -105,3 +105,24 @@
 		transition: none;
 	}
 }
+
+.header {
+  background: rgba(255, 250, 245, 0.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+.header__container { width: min(100% - 48px, 1200px); min-height: 76px; }
+.header__logo { color: var(--green); font-size: 26px; }
+.header__link { padding: 12px 18px; color: var(--green); font-size: 15px; }
+.header__link:hover { background: #f0ede3; transform: none; }
+@media (max-width: 720px) {
+  .header__container {
+    width: calc(100% - 32px);
+    min-height: 68px;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+  .header__nav { width: auto; padding: 0; overflow: visible; }
+  .header__logo { font-size: 23px; }
+}

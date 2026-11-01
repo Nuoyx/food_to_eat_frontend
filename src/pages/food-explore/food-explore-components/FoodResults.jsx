@@ -13,7 +13,6 @@ function FoodResults({ foods }) {
               <option value="popular">Popular</option> 
               <option value="name-asc">A → Z</option> 
               <option value="name-desc">Z → A</option> 
-              <option value="recent">Recently Added</option>
             </select>
           </label>
       </div>

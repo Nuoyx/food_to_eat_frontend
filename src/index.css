@@ -109,3 +109,38 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+*, *::before, *::after { box-sizing: border-box; }
+:root {
+  color-scheme: light;
+  --bg: #fffaf5;
+  --text: #59675f;
+  --text-h: #20392d;
+  --border: #e7e5dc;
+  --surface: #ffffff;
+  --primary: #c74725;
+  --primary-hover: #ad391c;
+  --green: #284f3b;
+  font-family: system-ui, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: normal;
+  color: var(--text);
+  background: var(--bg);
+}
+body { min-width: 320px; }
+#root { width: 100%; max-width: none; border: 0; text-align: left; }
+button, input, select { font: inherit; }
+button, a, input, select { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 4px;
+}
+h1, h2, h3 { color: var(--text-h); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
