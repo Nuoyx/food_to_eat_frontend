@@ -2,17 +2,14 @@ import { useState } from "react";
 import "./FoodDecider.css";
 import Question from "./food-decider-components/Question";
 import Recommendation from "./food-decider-components/Recommendation";
+import foods from "../../data/foods";
 
 const MOCK_QUESTIONS = {
   id: "spicy",
   question: "Do you want something spicy?",
 };
 
-const MOCK_FOOD = {
-  name: "Ramen",
-  description: "A warm and savory noodle dish.",
-  image: "/images/ramen.jpg",
-};
+const MOCK_FOOD = foods.find((food) => food.id === 2);
 
 
 function FoodDecider() {

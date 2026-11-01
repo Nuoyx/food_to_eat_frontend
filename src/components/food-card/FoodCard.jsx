@@ -8,11 +8,12 @@ function FoodCard({ food }) {
         <Link to={`/foods/${food.id}`} aria-label={`View ${food.name} details`}>
           <FoodImage
             className="food-card__image"
-            src={food.image}
+            src={food.image_url}
             alt={food.name}
           />
         </Link>
 
+        {/* 
         <button
           className="food-card__favorite"
           onClick={(event) => {
@@ -23,12 +24,14 @@ function FoodCard({ food }) {
         >
           ♡
         </button>
-      </div>
+        */}
 
+      </div>
+      
       <div className="food-card__content">
         <Link className="food-card__details-link" to={`/foods/${food.id}`}>
           <h3>{food.name}</h3>
-          <p>{food.category}</p>
+          <p>{food.cuisine}</p>
         </Link>
       </div>
     </article>

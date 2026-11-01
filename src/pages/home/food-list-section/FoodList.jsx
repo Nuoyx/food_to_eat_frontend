@@ -2,9 +2,12 @@ import "./FoodList.css";
 import FoodCard from "../../../components/food-card/FoodCard";
 import foods from "../../../data/foods";
 
+import { useNavigate } from "react-router-dom";
+
 function FoodList() {
+  const navigate = useNavigate();
   const handleBrowseAll = () => {
-    console.log("Browse all foods");
+    navigate("/foods");
   };
 
   return (

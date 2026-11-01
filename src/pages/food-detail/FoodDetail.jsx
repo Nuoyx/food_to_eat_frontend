@@ -40,13 +40,27 @@ function FoodDetail() {
         <article className="food-detail__card">
           <FoodImage
             className="food-detail__image"
-            src={food.image}
+            src={food.image_url}
             alt={food.name}
           />
           <div className="food-detail__content">
-            <p className="food-detail__category">{food.category} cuisine</p>
+            <p className="food-detail__category">{food.cuisine} cuisine</p>
             <h1>{food.name}</h1>
             <p className="food-detail__description">{food.description}</p>
+            <dl className="food-detail__attributes">
+              <div>
+                <dt>Food types</dt>
+                <dd>{food.food_types.join(", ")}</dd>
+              </div>
+              <div>
+                <dt>Main ingredients</dt>
+                <dd>{food.main_ingredients.join(", ")}</dd>
+              </div>
+              <div>
+                <dt>Flavor profiles</dt>
+                <dd>{food.flavor_profiles.join(", ")}</dd>
+              </div>
+            </dl>
 
             <section className="food-detail__searches" aria-label="Explore more">
               <h2>Explore {food.name}</h2>

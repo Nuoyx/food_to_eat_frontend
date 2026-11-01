@@ -7,7 +7,7 @@ function Recommendation({ food, onRestart }) {
       <h1>How about {food.name}?</h1>
 
       <div className="decider-recommendation__card">
-        <img src={food.image} alt={food.name} />
+        <img src={food.image_url} alt={food.name} />
 
         <div>
           <h2>{food.name}</h2>

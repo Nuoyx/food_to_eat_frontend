@@ -39,7 +39,7 @@ function Hero() {
             className="hero__button hero__button--secondary"
             onClick={handleBrowseFoods}
           >
-            Browse Foods
+            Browse All Foods
           </button>
         </div>
 
