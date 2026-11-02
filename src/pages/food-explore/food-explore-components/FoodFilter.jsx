@@ -86,6 +86,12 @@ function FoodFilters() {
             aria-labelledby={`filter-${filter.key}`}
           >
             <h3 id={`filter-${filter.key}`}>{filter.name}</h3>
+            <div
+              className="food-filter__options"
+              role="region"
+              aria-labelledby={`filter-${filter.key}`}
+              tabIndex={0}
+            >
             {filter.options.map((option) => (
               <label className="food-filter__option" key={option}>
                 <input
@@ -97,6 +103,7 @@ function FoodFilters() {
                 {option}
               </label>
             ))}
+            </div>
           </section>
         ))}
 
