@@ -31,11 +31,12 @@ export default function FoodExplore() {
           <RequestStatus {...request} />
           {request.data && <>
             <FoodResults foods={request.data.records} total={request.data.total} />
+            {page > pages ? <button type="button" onClick={() => changePage(1)}>Back to first page</button> :
             <nav className="food-pagination" aria-label="Food results pages">
               <button disabled={page <= 1} onClick={() => changePage(page - 1)}>Previous</button>
               <span role="status">Page {page} of {pages}</span>
               <button disabled={page >= pages} onClick={() => changePage(page + 1)}>Next</button>
-            </nav>
+            </nav>}
           </>}
         </div>
       </section>

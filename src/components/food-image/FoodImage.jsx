@@ -4,7 +4,7 @@ import "./FoodImage.css";
 function FoodImage({ src, alt, className }) {
   const [hasError, setHasError] = useState(false);
 
-  if (hasError) {
+  if (hasError || !src) {
     return (
       <div
         className={`food-image__fallback ${className}`}

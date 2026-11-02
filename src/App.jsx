@@ -4,14 +4,12 @@ import HomePage from './pages/home/HomePage'
 import FoodExplore from './pages/food-explore/FoodExplore'
 import FoodDecider from './pages/food-decider/FoodDecider'
 import FoodDetail from './pages/food-detail/FoodDetail'
-import Chatbot from './components/chatbot/Chatbot'
 
 function App() {
 
   return (
     <>
     <Header />
-    <Chatbot />
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="/foods" element={<FoodExplore />} />
