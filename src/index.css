@@ -129,6 +129,15 @@ code {
   background: var(--bg);
 }
 body { min-width: 320px; }
+.request-status { padding: 24px 0; text-align: center; }
+.request-status button, .food-pagination button {
+  margin-top: 12px; padding: 8px 16px; border: 1px solid var(--border);
+  border-radius: 8px; background: var(--surface); color: var(--green); cursor: pointer;
+}
+button:disabled { opacity: 0.55; cursor: not-allowed; }
+.food-pagination { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 28px; flex-wrap: wrap; }
+.food-pagination button { margin-top: 0; }
+.decider-recommendation__card .food-image__fallback { min-height: 200px; border-radius: 16px; }
 #root { width: 100%; max-width: none; border: 0; text-align: left; }
 button, input, select { font: inherit; }
 button, a, input, select { -webkit-tap-highlight-color: transparent; }

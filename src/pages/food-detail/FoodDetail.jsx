@@ -1,11 +1,20 @@
 import { Link, useParams } from "react-router-dom";
 import FoodImage from "../../components/food-image/FoodImage";
-import foods from "../../data/foods";
+import { useCallback } from "react";
+import { getFoodById } from "../../services/foodService";
+import { useRemoteData } from "../../hooks/useRemoteData";
+import RequestStatus from "../../components/request-status/RequestStatus";
 import "./FoodDetail.css";
 
 function FoodDetail() {
   const { foodId } = useParams();
-  const food = foods.find((item) => String(item.id) === foodId);
+  const load = useCallback((options) => /^\d+$/.test(foodId)
+    ? getFoodById(foodId, options) : Promise.resolve(null), [foodId]);
+  const request = useRemoteData(load);
+  const food = request.data;
+  if (request.loading || request.error) {
+    return <main className="food-detail"><RequestStatus {...request} /></main>;
+  }
 
   if (!food) {
     return (
@@ -39,6 +48,7 @@ function FoodDetail() {
 
         <article className="food-detail__card">
           <FoodImage
+            key={food.image_url}
             className="food-detail__image"
             src={food.image_url}
             alt={food.name}
@@ -50,15 +60,15 @@ function FoodDetail() {
             <dl className="food-detail__attributes">
               <div>
                 <dt>Food types</dt>
-                <dd>{food.food_types.join(", ")}</dd>
+                <dd>{food.types.join(", ")}</dd>
               </div>
               <div>
                 <dt>Main ingredients</dt>
-                <dd>{food.main_ingredients.join(", ")}</dd>
+                <dd>{food.ingredients.join(", ")}</dd>
               </div>
               <div>
                 <dt>Flavor profiles</dt>
-                <dd>{food.flavor_profiles.join(", ")}</dd>
+                <dd>{food.flavor.join(", ")}</dd>
               </div>
             </dl>
 

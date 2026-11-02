@@ -1,10 +1,14 @@
 import "./FoodList.css";
 import FoodCard from "../../../components/food-card/FoodCard";
-import foods from "../../../data/foods";
+import { getPopularFoods } from "../../../services/foodService";
+import { useRemoteData } from "../../../hooks/useRemoteData";
+import RequestStatus from "../../../components/request-status/RequestStatus";
 
 import { useNavigate } from "react-router-dom";
 
 function FoodList() {
+  const request = useRemoteData(getPopularFoods);
+  const foods = request.data || [];
   const navigate = useNavigate();
   const handleBrowseAll = () => {
     navigate("/foods");
@@ -29,6 +33,7 @@ function FoodList() {
         </button>
       </div>
 
+      <RequestStatus {...request} />
       <div className="popular-foods__grid">
         {foods.map((food) => (
           <FoodCard key={food.id} food={food} />
